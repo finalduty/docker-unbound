@@ -6,7 +6,6 @@ After=docker.service
 [Service]
 Restart=always
 TimeoutStartSec=0
-SuccessExitStatus=137
 
 ExecStartPre=-/usr/bin/docker run -idt --name unbound -h unbound.finalduty.me -p 53:53/udp finalduty/unbound
 ExecStart=/usr/bin/docker start -a unbound
