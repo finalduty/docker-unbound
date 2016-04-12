@@ -1,4 +1,4 @@
-FROM finalduty/archlinux:daily
+FROM finalduty/docker-archlinux-base
 MAINTAINER FinalDuty <root@finalduty.me>
 EXPOSE 53/udp
 CMD /usr/bin/unbound; /bin/bash; 
