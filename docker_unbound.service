@@ -7,9 +7,10 @@ After=docker.service
 Restart=always
 TimeoutStartSec=0
 
-ExecStartPre=-/usr/bin/docker run -idt --name unbound -v /srv/docker/unbound/unbound.conf:/etc/unbound/unbound.conf -p 53:53/udp finalduty/unbound
-ExecStart=/usr/bin/docker start -a unbound
+#ExecStartPre=-/usr/bin/docker run -idt --name unbound -v /srv/docker/unbound/unbound.conf:/etc/unbound/unbound.conf -p 53:53/udp finalduty/unbound
+#ExecStart=/usr/bin/docker start -a unbound
 
+ExecStart=docker run -idt --name unbound -v /srv/docker/unbound/unbound.conf:/etc/unbound/unbound.conf -p 53:53/udp -p 53:53 finalduty/unbound
 ExecStop=/usr/bin/docker stop -t 2 unbound
 ExecStopPost=-/usr/bin/docker rm -f unbound
 
